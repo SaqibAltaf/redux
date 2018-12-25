@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Posts from './components/Posts';
+import PostForm from './components/PostForm';
+import {Provider} from 'react-redux';
+// import ReduxDemo from './ReduxDemo';
+
+import store from './store';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <Provider store = {store}>
+        <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -19,8 +26,15 @@ class App extends Component {
           >
             Learn React
           </a>
+          {/* <ReduxDemo></ReduxDemo> */}
         </header>
+        <PostForm></PostForm>
+        <hr></hr>
+        <Posts></Posts>
+
       </div>
+      </Provider>
+      
     );
   }
 }
