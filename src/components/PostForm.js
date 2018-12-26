@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {newPosts} from '../actions/postActions';
+import PropTypes from 'prop-types';
+
 class PostForm extends Component {
     constructor(props) {
         super(props);
@@ -8,6 +10,12 @@ class PostForm extends Component {
             title : "",
             body : ""
          }
+    }
+    componentWillReceiveProps(nextProps){
+        if(nextProps.newPost){
+            console.log("New Post =>", nextProps.newPost)
+        }
+
     }
 
     handleChange(e){
@@ -47,6 +55,12 @@ class PostForm extends Component {
          );
     }
 }
+
+PostForm.prototypes = {
+    newPosts :   PropTypes.func.isRequired,
+    newPost : PropTypes.object
+}
+
 const mapStatetoProps = state => ({
     newPost : state.posts.item
 })

@@ -22,5 +22,6 @@ export const newPosts = (post) => dispatch =>{
     .then(res => dispatch({
         type: NEW_POST,
         payload: res
-    }));
+    })
+    );
 }
