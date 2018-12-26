@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {newPosts} from '../actions/postActions';
 class PostForm extends Component {
     constructor(props) {
         super(props);
@@ -21,15 +23,7 @@ class PostForm extends Component {
             body: this.state.body
         }
 
-        fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            headers:{
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(post)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data))
+     this.props.newPosts(post);
         
         
     }
@@ -53,5 +47,8 @@ class PostForm extends Component {
          );
     }
 }
+const mapStatetoProps = state => ({
+    newPost : state.posts.item
+})
  
-export default PostForm;
+export default connect(mapStatetoProps, {newPosts})(PostForm) ;
