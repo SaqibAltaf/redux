@@ -18,11 +18,17 @@ width: 90%;
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
+.Users{
+  margin-left: 54%;
+}
 .App-link {
   color: #61dafb;
 }
-
+.sidePost{
+  width: 50%;
+  border-right: 1px solid black;
+  float: left;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

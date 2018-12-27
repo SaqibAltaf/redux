@@ -1,4 +1,4 @@
-import {FETCH_POST, NEW_POST} from './types';
+import {FETCH_POST, NEW_POST, FETCH_USER} from './types';
 
 export const fetchPosts = () => dispatch =>{
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -22,6 +22,14 @@ export const newPosts = (post) => dispatch =>{
     .then(res => dispatch({
         type: NEW_POST,
         payload: res
+    })
+    );
+}
+
+export const  fetchUsers = (index) => dispatch =>{
+    fetch('https://jsonplaceholder.typicode.com/todos/'+ index).then(res =>res.json()).then(data =>dispatch({
+        type:FETCH_USER,
+        payload: data
     })
     );
 }

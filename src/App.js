@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Posts from './components/Posts';
 import PostForm from './components/PostForm';
+import Users from './components/Users';
 import {Provider} from 'react-redux';
 // import ReduxDemo from './ReduxDemo';
 
@@ -30,7 +31,13 @@ class App extends Component {
         </header>
         <PostForm></PostForm>
         <hr></hr>
-        <Posts></Posts>
+        <div className="sidePost">
+            <Posts></Posts>
+        </div>
+        <div className="Users">
+        <Users></Users>
+
+        </div>
 
       </div>
       </Provider>

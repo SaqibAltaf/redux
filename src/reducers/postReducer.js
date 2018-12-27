@@ -1,8 +1,9 @@
-import { FETCH_POST, NEW_POST } from './../actions/types';
+import { FETCH_POST, NEW_POST , FETCH_USER} from './../actions/types';
 
 const initialState = {
     items: [],
-    item: {}
+    item: {},
+    users:[]
 }
 
 
@@ -18,6 +19,10 @@ export default function (state = initialState, actions) {
                 ...state,
                 item: actions.payload
             }
+            case FETCH_USER:
+            let newUser= Object.assign({}, state);
+            newUser.users.push(actions.payload);
+            return newUser;
         default:
             return state;
     }
